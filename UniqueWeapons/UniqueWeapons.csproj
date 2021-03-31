@@ -301,6 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="prefabs\BattleaxeLightningPrefab.cs" />
+    <Compile Include="prefabs\SpellFirePrefab.cs" />
     <Compile Include="prefabs\UnarmedFrostOHPrefab.cs" />
     <Compile Include="prefabs\ShieldFirePrefab.cs" />
     <Compile Include="prefabs\SwordFirePrefab.cs" />

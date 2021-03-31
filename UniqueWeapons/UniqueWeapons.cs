@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace UniqueWeapons
 {
-    [BepInPlugin("com.bepinex.plugins.uniqueweapons", "UniqueWeapons", "0.1.2")]
+    [BepInPlugin("com.bepinex.plugins.uniqueweapons", "UniqueWeapons", "0.2.0")]
     [BepInDependency("com.bepinex.plugins.jotunnlib")]
     public class UniqueWeapons : BaseUnityPlugin
     {
@@ -19,13 +19,13 @@ namespace UniqueWeapons
         private static GameObject itemPrefabUnarmedFrostOH;
         private static GameObject itemPrefabSwordFire;
         private static GameObject itemPrefabShieldFire;
+        private static GameObject itemPrefabSpellFire;
         private void Awake()
         {
             ObjectManager.Instance.ObjectRegister += registerObjects;
             PrefabManager.Instance.PrefabRegister += registerPrefabs;
 
             // ASSET BUNDLES
-            AssetBundle newBundle = AssetBundle.LoadFromFile(Path.Combine(Paths.PluginPath, "UniqueWeapons/newbundle"));
             AssetBundle bundle = AssetBundle.LoadFromFile(Path.Combine(Paths.PluginPath, "UniqueWeapons/uniqueweapons"));
 
             // BATTLEAXE LIGHTNING
@@ -47,6 +47,9 @@ namespace UniqueWeapons
 
             // SHIELD FIRE
             itemPrefabShieldFire = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_ShieldFire/v801_ShieldFire.prefab");
+
+            // SPELL FIRE
+            itemPrefabSpellFire = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_SpellFire/v801_SpellFire.prefab");
         }
 
         private void registerPrefabs(object sender, EventArgs e)
@@ -76,6 +79,10 @@ namespace UniqueWeapons
             // SHIELD FIRE
             ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabShieldFire, "v801_ShieldFire_bundle" });
             PrefabManager.Instance.RegisterPrefab(new ShieldFirePrefab());
+
+            // SPELL FIRE
+            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabSpellFire, "v801_SpellFire_bundle" });
+            PrefabManager.Instance.RegisterPrefab(new SpellFirePrefab());
         }
 
         private void registerObjects(object sender, EventArgs e)
@@ -94,6 +101,8 @@ namespace UniqueWeapons
             ObjectManager.Instance.RegisterItem("v801_SwordFire");
             // SHIELD FIRE
             ObjectManager.Instance.RegisterItem("v801_ShieldFire");
+            // SPELL FIRE
+            ObjectManager.Instance.RegisterItem("v801_SpellFire");
 
             // REGISTER RECIPES
             // BATTLEAXE LIGHTNING
@@ -313,6 +322,34 @@ namespace UniqueWeapons
                     {
                         Item = "Flametal",
                         Amount = 60
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "TrophyGoblinKing",
+                        Amount = 12
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "YagluthDrop",
+                        Amount = 36
+                    }
+                }
+            });
+            // SPELL FIRE RECIPE
+            ObjectManager.Instance.RegisterRecipe(new RecipeConfig()
+            {
+                Name = "Recipe_ChaoticHand",
+                Item = "v801_SpellFire",
+                Amount = 1,
+                CraftingStation = "forge",
+                MinStationLevel = 7,
+
+                Requirements = new PieceRequirementConfig[]
+                {
+                    new PieceRequirementConfig()
+                    {
+                        Item = "Crystal",
+                        Amount = 40
                     },
                     new PieceRequirementConfig()
                     {
