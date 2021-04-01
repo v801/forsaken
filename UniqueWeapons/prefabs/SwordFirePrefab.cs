@@ -33,15 +33,12 @@ namespace UniqueWeapons
             item.m_itemData.m_shared.m_attack.m_speedFactorRotation = 0.1f;
             item.m_itemData.m_shared.m_secondaryAttack.m_attackAnimation = "battleaxe_secondary";
             item.m_itemData.m_shared.m_secondaryAttack.m_attackChainLevels = 0;
-            item.m_itemData.m_shared.m_secondaryAttack.m_attackStamina = 20;
+            item.m_itemData.m_shared.m_secondaryAttack.m_attackStamina = 30;
             item.m_itemData.m_shared.m_secondaryAttack.m_speedFactor = 0.1f;
             item.m_itemData.m_shared.m_secondaryAttack.m_speedFactorRotation = 0.1f;
-            item.m_itemData.m_shared.m_secondaryAttack.m_damageMultiplier = 1.25f;
+            item.m_itemData.m_shared.m_secondaryAttack.m_damageMultiplier = 1f;
             item.m_itemData.m_shared.m_secondaryAttack.m_forceMultiplier = 10;
             item.m_itemData.m_shared.m_secondaryAttack.m_staggerMultiplier = 6;
-            item.m_itemData.m_shared.m_secondaryAttack.m_attackRange = 3.5f;
-            item.m_itemData.m_shared.m_secondaryAttack.m_attackAngle = 90;
-            item.m_itemData.m_shared.m_secondaryAttack.m_attackRayWidth = 0.3f;
             item.m_itemData.m_shared.m_secondaryAttack.m_lowerDamagePerHit = false;
             item.m_itemData.m_shared.m_damages.m_slash = 0;
             item.m_itemData.m_shared.m_damages.m_fire = 36;

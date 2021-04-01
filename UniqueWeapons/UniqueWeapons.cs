@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace UniqueWeapons
 {
-    [BepInPlugin("com.bepinex.plugins.uniqueweapons", "UniqueWeapons", "0.2.0")]
+    [BepInPlugin("com.bepinex.plugins.uniqueweapons", "UniqueWeapons", "0.3.0")]
     [BepInDependency("com.bepinex.plugins.jotunnlib")]
     public class UniqueWeapons : BaseUnityPlugin
     {
@@ -20,6 +20,7 @@ namespace UniqueWeapons
         private static GameObject itemPrefabSwordFire;
         private static GameObject itemPrefabShieldFire;
         private static GameObject itemPrefabSpellFire;
+        private static GameObject itemPrefabBowFrost;
         private void Awake()
         {
             ObjectManager.Instance.ObjectRegister += registerObjects;
@@ -50,6 +51,9 @@ namespace UniqueWeapons
 
             // SPELL FIRE
             itemPrefabSpellFire = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_SpellFire/v801_SpellFire.prefab");
+
+            // BOW FROST
+            itemPrefabBowFrost = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_UnarmedFenring/bow.prefab");
         }
 
         private void registerPrefabs(object sender, EventArgs e)
@@ -83,6 +87,10 @@ namespace UniqueWeapons
             // SPELL FIRE
             ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabSpellFire, "v801_SpellFire_bundle" });
             PrefabManager.Instance.RegisterPrefab(new SpellFirePrefab());
+
+            // BOW FROST
+            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabBowFrost, "v801_BowFrost_bundle" });
+            PrefabManager.Instance.RegisterPrefab(new BowFrostPrefab());
         }
 
         private void registerObjects(object sender, EventArgs e)
@@ -103,6 +111,8 @@ namespace UniqueWeapons
             ObjectManager.Instance.RegisterItem("v801_ShieldFire");
             // SPELL FIRE
             ObjectManager.Instance.RegisterItem("v801_SpellFire");
+            // BOW FROST
+            ObjectManager.Instance.RegisterItem("v801_BowFrost");
 
             // REGISTER RECIPES
             // BATTLEAXE LIGHTNING
@@ -202,6 +212,39 @@ namespace UniqueWeapons
                         Item = "TrophyBonemass",
                         Amount = 6
                     }
+                }
+            });
+            // BOW FROST RECIPE
+            ObjectManager.Instance.RegisterRecipe(new RecipeConfig()
+            {
+                Name = "Recipe_Rimefang",
+                Item = "v801_BowFrost",
+                Amount = 1,
+                CraftingStation = "forge",
+                MinStationLevel = 6,
+
+                Requirements = new PieceRequirementConfig[]
+                {
+                    new PieceRequirementConfig()
+                    {
+                        Item = "FreezeGland",
+                        Amount = 20
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "Crystal",
+                        Amount = 20
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "DragonTear",
+                        Amount = 40
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "TrophyDragonQueen",
+                        Amount = 8
+                    },
                 }
             });
             // UNARMED FROST RECIPE
