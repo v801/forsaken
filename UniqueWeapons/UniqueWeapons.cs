@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace UniqueWeapons
 {
-    [BepInPlugin("com.bepinex.plugins.uniqueweapons", "UniqueWeapons", "0.3.0")]
+    [BepInPlugin("com.bepinex.plugins.uniqueweapons", "UniqueWeapons", "0.4.0")]
     [BepInDependency("com.bepinex.plugins.jotunnlib")]
     public class UniqueWeapons : BaseUnityPlugin
     {
@@ -30,8 +30,7 @@ namespace UniqueWeapons
             AssetBundle bundle = AssetBundle.LoadFromFile(Path.Combine(Paths.PluginPath, "UniqueWeapons/uniqueweapons"));
 
             // BATTLEAXE LIGHTNING
-            AssetBundle bundleBattleaxeLightning = AssetBundle.LoadFromFile(Path.Combine(Paths.PluginPath, "UniqueWeapons/v801_battleaxelightning"));
-            itemPrefabBattleaxeLightning = (GameObject)bundleBattleaxeLightning.LoadAsset("Assets/CustomItems/Custom_BattleaxeLightning.prefab");
+            itemPrefabBattleaxeLightning = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_BattleaxeLightning/v801_BattleaxeLightning.prefab");
 
             // SPEAR SPIRIT
             itemPrefabSpearSpirit = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_SpearSpirit/v801_SpearSpirit.prefab");
@@ -53,7 +52,7 @@ namespace UniqueWeapons
             itemPrefabSpellFire = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_SpellFire/v801_SpellFire.prefab");
 
             // BOW FROST
-            itemPrefabBowFrost = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_UnarmedFenring/bow.prefab");
+            itemPrefabBowFrost = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_BowFrost/v801_BowFrost.prefab");
         }
 
         private void registerPrefabs(object sender, EventArgs e)
