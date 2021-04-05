@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\BepInEx\core\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="assembly_googleanalytics, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_googleanalytics.dll</HintPath>
@@ -301,13 +305,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="prefabs\BattleaxeLightningPrefab.cs" />
-    <Compile Include="prefabs\BowFrost.cs" />
+    <Compile Include="prefabs\BowFrostPrefab.cs" />
+    <Compile Include="prefabs\SledgeFirePrefab.cs" />
     <Compile Include="prefabs\SpellFirePrefab.cs" />
+    <Compile Include="prefabs\UnarmedFenringPrefab.cs" />
+    <Compile Include="prefabs\SwordLightningPrefab.cs" />
     <Compile Include="prefabs\UnarmedFrostOHPrefab.cs" />
     <Compile Include="prefabs\ShieldFirePrefab.cs" />
     <Compile Include="prefabs\SwordFirePrefab.cs" />
-    <Compile Include="prefabs\UnarmedFrost.cs" />
+    <Compile Include="prefabs\UnarmedFrostPrefab.cs" />
     <Compile Include="prefabs\SledgePoisonPrefab.cs" />
+    <Compile Include="se\SE_LifeLeech.cs" />
     <Compile Include="UniqueWeapons.cs" />
     <Compile Include="prefabs\SpearSpiritPrefab.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

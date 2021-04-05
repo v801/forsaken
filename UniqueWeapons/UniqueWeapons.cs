@@ -6,18 +6,23 @@ using JotunnLib.Entities;
 using JotunnLib.Utils;
 using UnityEngine;
 
+// somewhere out there, this is outdated in a random modpack ;_;
+
 namespace UniqueWeapons
 {
-    [BepInPlugin("com.bepinex.plugins.uniqueweapons", "UniqueWeapons", "0.4.0")]
+    [BepInPlugin("com.bepinex.plugins.uniqueweapons", "UniqueWeapons", "0.5.0")]
     [BepInDependency("com.bepinex.plugins.jotunnlib")]
     public class UniqueWeapons : BaseUnityPlugin
     {
         private static GameObject itemPrefabBattleaxeLightning;
         private static GameObject itemPrefabSpearSpirit;
         private static GameObject itemPrefabSledgePoison;
+        private static GameObject itemPrefabSledgeFire;
         private static GameObject itemPrefabUnarmedFrost;
         private static GameObject itemPrefabUnarmedFrostOH;
+        private static GameObject itemPrefabUnarmedFenring;
         private static GameObject itemPrefabSwordFire;
+        private static GameObject itemPrefabSwordLightning;
         private static GameObject itemPrefabShieldFire;
         private static GameObject itemPrefabSpellFire;
         private static GameObject itemPrefabBowFrost;
@@ -38,12 +43,21 @@ namespace UniqueWeapons
             // SLEDGE POISON
             itemPrefabSledgePoison = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_SledgePoison/v801_SledgePoison.prefab");
 
+            // SLEDGE FIRE
+            itemPrefabSledgeFire = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_SledgeFire/v801_SledgeFire.prefab");
+
             // UNARMED FROST
             itemPrefabUnarmedFrost = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_UnarmedFrost/v801_UnarmedFrost.prefab");
             itemPrefabUnarmedFrostOH = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_UnarmedFrost/v801_UnarmedFrostOH.prefab");
 
+            // UNARMED FENRING
+            itemPrefabUnarmedFenring = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_UnarmedFenring/v801_UnarmedFenring.prefab");
+
             // SWORD FIRE
             itemPrefabSwordFire = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_SwordFire/v801_SwordFire.prefab");
+
+            // SWORD LIGHTNING
+            itemPrefabSwordLightning = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_SwordLightning/v801_SwordLightning.prefab");
 
             // SHIELD FIRE
             itemPrefabShieldFire = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_ShieldFire/v801_ShieldFire.prefab");
@@ -69,6 +83,10 @@ namespace UniqueWeapons
             ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabSledgePoison, "v801_SledgePoison_bundle" });
             PrefabManager.Instance.RegisterPrefab(new SledgePoisonPrefab());
 
+            // SLEDGE FIRE
+            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabSledgeFire, "v801_SledgeFire_bundle" });
+            PrefabManager.Instance.RegisterPrefab(new SledgeFirePrefab());
+
             // UNARMED FROST
             ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabUnarmedFrost, "v801_UnarmedFrost_bundle" });
             PrefabManager.Instance.RegisterPrefab(new UnarmedFrostPrefab());
@@ -78,6 +96,14 @@ namespace UniqueWeapons
             // SWORD FIRE
             ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabSwordFire, "v801_SwordFire_bundle" });
             PrefabManager.Instance.RegisterPrefab(new SwordFirePrefab());
+
+            // SWORD LIGHTNING
+            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabSwordLightning, "v801_SwordLightning_bundle" });
+            PrefabManager.Instance.RegisterPrefab(new SwordLightningPrefab());
+
+            // UNARMED FENRING
+            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabUnarmedFenring, "v801_UnarmedFenring_bundle" });
+            PrefabManager.Instance.RegisterPrefab(new UnarmedFenringPrefab());
 
             // SHIELD FIRE
             ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabShieldFire, "v801_ShieldFire_bundle" });
@@ -101,9 +127,15 @@ namespace UniqueWeapons
             ObjectManager.Instance.RegisterItem("v801_SpearSpirit");
             // SLEDGE POISON
             ObjectManager.Instance.RegisterItem("v801_SledgePoison");
+            // SLEDGE FIRE
+            ObjectManager.Instance.RegisterItem("v801_SledgeFire");
             // UNARMED FROST
             ObjectManager.Instance.RegisterItem("v801_UnarmedFrost");
             ObjectManager.Instance.RegisterItem("v801_UnarmedFrostOH");
+            // UNARMED FENRING
+            ObjectManager.Instance.RegisterItem("v801_UnarmedFenring");
+            // SWORD LIGHTNING
+            ObjectManager.Instance.RegisterItem("v801_SwordLightning");
             // SWORD FIRE
             ObjectManager.Instance.RegisterItem("v801_SwordFire");
             // SHIELD FIRE
@@ -180,6 +212,39 @@ namespace UniqueWeapons
                     }
                 }
             });
+            // SLEDGE FIRE RECIPE
+            ObjectManager.Instance.RegisterRecipe(new RecipeConfig()
+            {
+                Name = "Recipe_MoltenStar",
+                Item = "v801_SledgeFire",
+                Amount = 1,
+                CraftingStation = "forge",
+                MinStationLevel = 6,
+
+                Requirements = new PieceRequirementConfig[]
+                {
+                    new PieceRequirementConfig()
+                    {
+                        Item = "Flametal",
+                        Amount = 80
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "SurtlingCore",
+                        Amount = 60
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "BlackMetal",
+                        Amount = 60
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "TrophySurtling",
+                        Amount = 60
+                    }
+                }
+            });
             // SLEDGE POISON RECIPE
             ObjectManager.Instance.RegisterRecipe(new RecipeConfig()
             {
@@ -237,12 +302,45 @@ namespace UniqueWeapons
                     new PieceRequirementConfig()
                     {
                         Item = "DragonTear",
-                        Amount = 40
+                        Amount = 20
                     },
                     new PieceRequirementConfig()
                     {
                         Item = "TrophyDragonQueen",
-                        Amount = 8
+                        Amount = 6
+                    },
+                }
+            });
+            // UNARMED FENRING RECIPE
+            ObjectManager.Instance.RegisterRecipe(new RecipeConfig()
+            {
+                Name = "Recipe_Lycanthro",
+                Item = "v801_UnarmedFenring",
+                Amount = 1,
+                CraftingStation = "forge",
+                MinStationLevel = 5,
+
+                Requirements = new PieceRequirementConfig[]
+                {
+                    new PieceRequirementConfig()
+                    {
+                        Item = "FreezeGland",
+                        Amount = 20
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "Silver",
+                        Amount = 20
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "Chain",
+                        Amount = 2
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "TrophyFenring",
+                        Amount = 10
                     },
                 }
             });
@@ -307,7 +405,7 @@ namespace UniqueWeapons
                     new PieceRequirementConfig()
                     {
                         Item = "TrophyDragonQueen",
-                        Amount = 2
+                        Amount = 4
                     },
                 }
             });
@@ -375,6 +473,39 @@ namespace UniqueWeapons
                         Item = "YagluthDrop",
                         Amount = 36
                     }
+                }
+            });
+            // SWORD LIGHTNING RECIPE
+            ObjectManager.Instance.RegisterRecipe(new RecipeConfig()
+            {
+                Name = "Recipe_BoltsEdge",
+                Item = "v801_SwordLightning",
+                Amount = 1,
+                CraftingStation = "forge",
+                MinStationLevel = 7,
+
+                Requirements = new PieceRequirementConfig[]
+                {
+                    new PieceRequirementConfig()
+                    {
+                        Item = "Iron",
+                        Amount = 40
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "Crystal",
+                        Amount = 40
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "Silver",
+                        Amount = 36
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "TrophyEikthyr",
+                        Amount = 12
+                    },
                 }
             });
             // SPELL FIRE RECIPE
