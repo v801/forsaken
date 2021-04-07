@@ -6,8 +6,6 @@ using JotunnLib.Entities;
 using JotunnLib.Utils;
 using UnityEngine;
 
-// somewhere out there, this is outdated in a random modpack ;_;
-
 namespace UniqueWeapons
 {
     [BepInPlugin("com.bepinex.plugins.uniqueweapons", "UniqueWeapons", "0.5.0")]
