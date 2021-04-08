@@ -78,7 +78,7 @@
     </Reference>
     <Reference Include="JotunnLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\JotunnLib.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\jotunnlib1.5\JotunnLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

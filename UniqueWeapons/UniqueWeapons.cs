@@ -3,12 +3,11 @@ using System.IO;
 using BepInEx;
 using JotunnLib.Managers;
 using JotunnLib.Entities;
-using JotunnLib.Utils;
 using UnityEngine;
 
 namespace UniqueWeapons
 {
-    [BepInPlugin("com.bepinex.plugins.uniqueweapons", "UniqueWeapons", "0.5.0")]
+    [BepInPlugin("com.bepinex.plugins.uniqueweapons", "UniqueWeapons", "0.5.2")]
     [BepInDependency("com.bepinex.plugins.jotunnlib")]
     public class UniqueWeapons : BaseUnityPlugin
     {
@@ -70,49 +69,49 @@ namespace UniqueWeapons
         private void registerPrefabs(object sender, EventArgs e)
         {
             // BATTLEAXE LIGHTNING
-            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabBattleaxeLightning, "v801_BattleaxeLightning_bundle" });
+            PrefabManager.Instance.RegisterPrefab(itemPrefabBattleaxeLightning, "v801_BattleaxeLightning_bundle");
             PrefabManager.Instance.RegisterPrefab(new BattleaxeLightningPrefab());
 
             // SPEAR SPIRIT
-            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabSpearSpirit, "v801_SpearSpirit_bundle" });
+            PrefabManager.Instance.RegisterPrefab(itemPrefabSpearSpirit, "v801_SpearSpirit_bundle");
             PrefabManager.Instance.RegisterPrefab(new SpearSpiritPrefab());
 
             // SLEDGE POISON
-            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabSledgePoison, "v801_SledgePoison_bundle" });
+            PrefabManager.Instance.RegisterPrefab(itemPrefabSledgePoison, "v801_SledgePoison_bundle");
             PrefabManager.Instance.RegisterPrefab(new SledgePoisonPrefab());
 
             // SLEDGE FIRE
-            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabSledgeFire, "v801_SledgeFire_bundle" });
+            PrefabManager.Instance.RegisterPrefab(itemPrefabSledgeFire, "v801_SledgeFire_bundle");
             PrefabManager.Instance.RegisterPrefab(new SledgeFirePrefab());
 
             // UNARMED FROST
-            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabUnarmedFrost, "v801_UnarmedFrost_bundle" });
+            PrefabManager.Instance.RegisterPrefab(itemPrefabUnarmedFrost, "v801_UnarmedFrost_bundle");
             PrefabManager.Instance.RegisterPrefab(new UnarmedFrostPrefab());
-            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabUnarmedFrostOH, "v801_UnarmedFrostOH_bundle" });
+            PrefabManager.Instance.RegisterPrefab(itemPrefabUnarmedFrostOH, "v801_UnarmedFrostOH_bundle");
             PrefabManager.Instance.RegisterPrefab(new UnarmedFrostOHPrefab());
 
             // SWORD FIRE
-            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabSwordFire, "v801_SwordFire_bundle" });
+            PrefabManager.Instance.RegisterPrefab(itemPrefabSwordFire, "v801_SwordFire_bundle");
             PrefabManager.Instance.RegisterPrefab(new SwordFirePrefab());
 
             // SWORD LIGHTNING
-            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabSwordLightning, "v801_SwordLightning_bundle" });
+            PrefabManager.Instance.RegisterPrefab(itemPrefabSwordLightning, "v801_SwordLightning_bundle");
             PrefabManager.Instance.RegisterPrefab(new SwordLightningPrefab());
 
             // UNARMED FENRING
-            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabUnarmedFenring, "v801_UnarmedFenring_bundle" });
+            PrefabManager.Instance.RegisterPrefab(itemPrefabUnarmedFenring, "v801_UnarmedFenring_bundle");
             PrefabManager.Instance.RegisterPrefab(new UnarmedFenringPrefab());
 
             // SHIELD FIRE
-            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabShieldFire, "v801_ShieldFire_bundle" });
+            PrefabManager.Instance.RegisterPrefab(itemPrefabShieldFire, "v801_ShieldFire_bundle");
             PrefabManager.Instance.RegisterPrefab(new ShieldFirePrefab());
 
             // SPELL FIRE
-            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabSpellFire, "v801_SpellFire_bundle" });
+            PrefabManager.Instance.RegisterPrefab(itemPrefabSpellFire, "v801_SpellFire_bundle");
             PrefabManager.Instance.RegisterPrefab(new SpellFirePrefab());
 
             // BOW FROST
-            ReflectionUtils.InvokePrivate(PrefabManager.Instance, "RegisterPrefab", new object[] { itemPrefabBowFrost, "v801_BowFrost_bundle" });
+            PrefabManager.Instance.RegisterPrefab(itemPrefabBowFrost, "v801_BowFrost_bundle");
             PrefabManager.Instance.RegisterPrefab(new BowFrostPrefab());
         }
 
