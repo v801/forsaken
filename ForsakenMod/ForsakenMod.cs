@@ -5,12 +5,14 @@ using JotunnLib.Managers;
 using JotunnLib.Entities;
 using UnityEngine;
 
-namespace UniqueWeapons
+namespace ForsakenMod
 {
-    [BepInPlugin("com.bepinex.plugins.uniqueweapons", "UniqueWeapons", "0.5.2")]
+    [BepInPlugin("com.bepinex.plugins.forsaken", "Forsaken", "0.6.0")]
     [BepInDependency("com.bepinex.plugins.jotunnlib")]
-    public class UniqueWeapons : BaseUnityPlugin
+    public class ForsakenMod : BaseUnityPlugin
     {
+        // ARMOR
+        // WEAPONS
         private static GameObject itemPrefabBattleaxeLightning;
         private static GameObject itemPrefabSpearSpirit;
         private static GameObject itemPrefabSledgePoison;
@@ -29,8 +31,10 @@ namespace UniqueWeapons
             PrefabManager.Instance.PrefabRegister += registerPrefabs;
 
             // ASSET BUNDLES
-            AssetBundle bundle = AssetBundle.LoadFromFile(Path.Combine(Paths.PluginPath, "UniqueWeapons/uniqueweapons"));
+            AssetBundle bundle = AssetBundle.LoadFromFile(Path.Combine(Paths.PluginPath, "Forsaken/forsakenmod"));
 
+            // ARMOR
+            // WEAPONS
             // BATTLEAXE LIGHTNING
             itemPrefabBattleaxeLightning = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_BattleaxeLightning/v801_BattleaxeLightning.prefab");
 
@@ -59,7 +63,7 @@ namespace UniqueWeapons
             // SHIELD FIRE
             itemPrefabShieldFire = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_ShieldFire/v801_ShieldFire.prefab");
 
-            // SPELL FIRE
+            // RANGED CHAOTIC HAND
             itemPrefabSpellFire = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_SpellFire/v801_SpellFire.prefab");
 
             // BOW FROST
@@ -68,6 +72,8 @@ namespace UniqueWeapons
 
         private void registerPrefabs(object sender, EventArgs e)
         {
+            // ARMOR
+            // WEAPONS
             // BATTLEAXE LIGHTNING
             PrefabManager.Instance.RegisterPrefab(itemPrefabBattleaxeLightning, "v801_BattleaxeLightning_bundle");
             PrefabManager.Instance.RegisterPrefab(new BattleaxeLightningPrefab());
@@ -106,7 +112,7 @@ namespace UniqueWeapons
             PrefabManager.Instance.RegisterPrefab(itemPrefabShieldFire, "v801_ShieldFire_bundle");
             PrefabManager.Instance.RegisterPrefab(new ShieldFirePrefab());
 
-            // SPELL FIRE
+            // RANGED CHAOTIC HAND
             PrefabManager.Instance.RegisterPrefab(itemPrefabSpellFire, "v801_SpellFire_bundle");
             PrefabManager.Instance.RegisterPrefab(new SpellFirePrefab());
 
@@ -118,6 +124,8 @@ namespace UniqueWeapons
         private void registerObjects(object sender, EventArgs e)
         {
             // REGISTER ITEMS
+            // ARMOR
+            // WEAPONS
             // BATTLEAXE LIGHTNING
             ObjectManager.Instance.RegisterItem("v801_BattleaxeLightning");
             // SPEAR SPIRIT

@@ -7,8 +7,8 @@
     <ProjectGuid>{1A90FCBB-8F98-4205-9228-DA11D6E5576A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UniqueWeapons</RootNamespace>
-    <AssemblyName>UniqueWeapons</AssemblyName>
+    <RootNamespace>ForsakenMod</RootNamespace>
+    <AssemblyName>ForsakenMod</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -304,10 +304,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="prefabs\armor\legs\LegsFeral.cs" />
     <Compile Include="prefabs\weapons\Battleaxes\BattleaxeLightningPrefab.cs" />
     <Compile Include="prefabs\weapons\Bows\BowFrostPrefab.cs" />
     <Compile Include="prefabs\weapons\Sledges\SledgeFirePrefab.cs" />
     <Compile Include="prefabs\weapons\Misc\SpellFirePrefab.cs" />
+    <Compile Include="prefabs\weapons\Swords\SwordGhost.cs" />
     <Compile Include="prefabs\weapons\Unarmed\UnarmedFenringPrefab.cs" />
     <Compile Include="prefabs\weapons\Swords\SwordLightningPrefab.cs" />
     <Compile Include="prefabs\weapons\Unarmed\UnarmedFrostOHPrefab.cs" />
@@ -316,7 +318,7 @@
     <Compile Include="prefabs\weapons\Unarmed\UnarmedFrostPrefab.cs" />
     <Compile Include="prefabs\weapons\Sledges\SledgePoisonPrefab.cs" />
     <Compile Include="se\SE_LifeLeech.cs" />
-    <Compile Include="UniqueWeapons.cs" />
+    <Compile Include="ForsakenMod.cs" />
     <Compile Include="prefabs\weapons\Spears\SpearSpiritPrefab.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -325,7 +327,6 @@
     <Folder Include="prefabs\armor\chests\" />
     <Folder Include="prefabs\armor\extra\" />
     <Folder Include="prefabs\armor\helms\" />
-    <Folder Include="prefabs\armor\legs\" />
     <Folder Include="prefabs\weapons\Atgeir\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
