@@ -307,6 +307,8 @@
     <Compile Include="prefabs\armor\legs\LegsFeral.cs" />
     <Compile Include="prefabs\weapons\Battleaxes\BattleaxeLightningPrefab.cs" />
     <Compile Include="prefabs\weapons\Bows\BowFrostPrefab.cs" />
+    <Compile Include="prefabs\weapons\Knives\KnifeFrostPrefab.cs" />
+    <Compile Include="prefabs\weapons\Misc\StaffGoblin.cs" />
     <Compile Include="prefabs\weapons\Sledges\SledgeFirePrefab.cs" />
     <Compile Include="prefabs\weapons\Misc\SpellFirePrefab.cs" />
     <Compile Include="prefabs\weapons\Swords\SwordGhost.cs" />

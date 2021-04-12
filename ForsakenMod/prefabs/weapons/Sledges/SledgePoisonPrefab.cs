@@ -28,6 +28,7 @@ namespace ForsakenMod
             item.m_itemData.m_shared.m_timedBlockBonus = 6;
             item.m_itemData.m_shared.m_deflectionForce = 6;
             item.m_itemData.m_shared.m_attackForce = 12;
+            item.m_itemData.m_shared.m_blockPower = 40;
             // damage
             item.m_itemData.m_shared.m_damages.m_blunt = 140;
             item.m_itemData.m_shared.m_damages.m_poison = 80;

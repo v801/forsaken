@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ForsakenMod
 {
-    [BepInPlugin("com.bepinex.plugins.forsaken", "Forsaken", "0.6.0")]
+    [BepInPlugin("com.bepinex.plugins.forsaken", "Forsaken", "0.7.0")]
     [BepInDependency("com.bepinex.plugins.jotunnlib")]
     public class ForsakenMod : BaseUnityPlugin
     {
@@ -25,6 +25,7 @@ namespace ForsakenMod
         private static GameObject itemPrefabShieldFire;
         private static GameObject itemPrefabSpellFire;
         private static GameObject itemPrefabBowFrost;
+        private static GameObject itemPrefabKnifeFrost;
         private void Awake()
         {
             ObjectManager.Instance.ObjectRegister += registerObjects;
@@ -68,6 +69,9 @@ namespace ForsakenMod
 
             // BOW FROST
             itemPrefabBowFrost = (GameObject)bundle.LoadAsset("Assets/Custom_Items/v801_BowFrost/v801_BowFrost.prefab");
+
+            // KNIFE FROST
+            itemPrefabKnifeFrost = (GameObject)bundle.LoadAsset("Assets/Custom_Items/weapons/v801_KnifeFrost/v801_KnifeFrost.prefab");
         }
 
         private void registerPrefabs(object sender, EventArgs e)
@@ -119,6 +123,10 @@ namespace ForsakenMod
             // BOW FROST
             PrefabManager.Instance.RegisterPrefab(itemPrefabBowFrost, "v801_BowFrost_bundle");
             PrefabManager.Instance.RegisterPrefab(new BowFrostPrefab());
+
+            // KNIFE NEEDLE
+            PrefabManager.Instance.RegisterPrefab(itemPrefabKnifeFrost, "v801_KnifeFrost_bundle");
+            PrefabManager.Instance.RegisterPrefab(new KnifeFrostPrefab());
         }
 
         private void registerObjects(object sender, EventArgs e)
@@ -149,6 +157,8 @@ namespace ForsakenMod
             ObjectManager.Instance.RegisterItem("v801_SpellFire");
             // BOW FROST
             ObjectManager.Instance.RegisterItem("v801_BowFrost");
+            // NEEDLE FROST
+            ObjectManager.Instance.RegisterItem("v801_KnifeFrost");
 
             // REGISTER RECIPES
             // BATTLEAXE LIGHTNING
@@ -330,22 +340,55 @@ namespace ForsakenMod
                     new PieceRequirementConfig()
                     {
                         Item = "FreezeGland",
-                        Amount = 20
+                        Amount = 40
                     },
                     new PieceRequirementConfig()
                     {
                         Item = "Silver",
-                        Amount = 20
+                        Amount = 60
                     },
                     new PieceRequirementConfig()
                     {
                         Item = "Chain",
-                        Amount = 2
+                        Amount = 4
                     },
                     new PieceRequirementConfig()
                     {
                         Item = "TrophyFenring",
                         Amount = 10
+                    },
+                }
+            });
+            // KNIFE FROST RECIPE
+            ObjectManager.Instance.RegisterRecipe(new RecipeConfig()
+            {
+                Name = "Recipe_Icicle",
+                Item = "v801_KnifeFrost",
+                Amount = 1,
+                CraftingStation = "forge",
+                MinStationLevel = 6,
+
+                Requirements = new PieceRequirementConfig[]
+                {
+                    new PieceRequirementConfig()
+                    {
+                        Item = "FreezeGland",
+                        Amount = 24
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "Needle",
+                        Amount = 60
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "DragonTear",
+                        Amount = 80
+                    },
+                    new PieceRequirementConfig()
+                    {
+                        Item = "TrophyDragonQueen",
+                        Amount = 8
                     },
                 }
             });

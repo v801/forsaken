@@ -28,10 +28,10 @@ namespace ForsakenMod
             item.m_itemData.m_shared.m_attackForce = 8;
             item.m_itemData.m_shared.m_blockPower = 70;
             // damage
-            item.m_itemData.m_shared.m_damages.m_blunt = 60;
+            item.m_itemData.m_shared.m_damages.m_blunt = 70;
             item.m_itemData.m_shared.m_damages.m_frost = 90;
             // attack
-            item.m_itemData.m_shared.m_attack.m_attackStamina = 20;
+            item.m_itemData.m_shared.m_attack.m_attackStamina = 15;
             // attack secondary
             item.m_itemData.m_shared.m_secondaryAttack.m_attackAnimation = "knife_secondary";
             item.m_itemData.m_shared.m_secondaryAttack.m_attackRayWidth = 0.3f;

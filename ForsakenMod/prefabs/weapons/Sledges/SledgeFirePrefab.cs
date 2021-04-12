@@ -27,13 +27,14 @@ namespace ForsakenMod
             item.m_itemData.m_shared.m_variants = 1;
             item.m_itemData.m_shared.m_weight = 4;
             // combat
+            item.m_itemData.m_shared.m_blockPower = 80;
             item.m_itemData.m_shared.m_timedBlockBonus = 6;
             item.m_itemData.m_shared.m_deflectionForce = 6;
             item.m_itemData.m_shared.m_attackForce = 6;
             // damage
             item.m_itemData.m_shared.m_damages.m_blunt = 40;
             item.m_itemData.m_shared.m_damages.m_pierce = 100;
-            item.m_itemData.m_shared.m_damages.m_fire = 100;
+            item.m_itemData.m_shared.m_damages.m_fire = 112;
             // attack
             item.m_itemData.m_shared.m_attack.m_attackStamina = 20;
             item.m_itemData.m_shared.m_attack.m_attackAnimation = "battleaxe_attack";

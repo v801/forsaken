@@ -30,11 +30,14 @@ namespace ForsakenMod
             // damage
             item.m_itemData.m_shared.m_damages.m_slash = 40;
             item.m_itemData.m_shared.m_damages.m_pierce = 40;
-            item.m_itemData.m_shared.m_damages.m_lightning = 80;
+            item.m_itemData.m_shared.m_damages.m_lightning = 70;
             // attack
             item.m_itemData.m_shared.m_attack.m_attackStamina = 20;
             // attack secondary
-            item.m_itemData.m_shared.m_secondaryAttack.m_damageMultiplier = 1.25f;
+            item.m_itemData.m_shared.m_secondaryAttack.m_damageMultiplier = 1f;
+            item.m_itemData.m_shared.m_secondaryAttack.m_attackStamina = 30;
+            item.m_itemData.m_shared.m_secondaryAttack.m_speedFactor = 0.3f;
+            item.m_itemData.m_shared.m_secondaryAttack.m_speedFactorRotation = 0.3f;
             item.m_itemData.m_shared.m_secondaryAttack.m_forceMultiplier = 10;
             item.m_itemData.m_shared.m_secondaryAttack.m_staggerMultiplier = 6;
             item.m_itemData.m_shared.m_secondaryAttack.m_lowerDamagePerHit = false;
